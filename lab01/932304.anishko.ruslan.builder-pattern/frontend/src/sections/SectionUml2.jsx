@@ -102,97 +102,98 @@ export default function SectionUml2() {
           <text x="580" y="8" fill="#666" fontSize="8">{"«use» _builders"}</text>
 
           {/* ================================================================== */}
-          {/*  ROW 2 — Three Concrete Builders                                   */}
+          {/*  ROW 2 — Common fields note + Three Concrete Builders              */}
           {/* ================================================================== */}
 
+          {/* ─── Shared fields note (draw.io style yellow note) ─── */}
+          <rect x="20" y="320" width="340" height="200" rx="4" fill="#fffde7" stroke="#c9a825" strokeWidth="1.5"/>
+          <polygon points="330,320 360,320 360,340 330,340" fill="#f5e6a3" stroke="#c9a825" strokeWidth="1"/>
+          <text x="30" y="340" fill="#7f6000" fontSize="10" fontWeight="bold">Общие поля всех ConcreteBuilder'ов:</text>
+          <text x="30" y="358" fill="#555" fontSize="9.5">- _name : string</text>
+          <text x="30" y="372" fill="#555" fontSize="9.5">- _email : string</text>
+          <text x="30" y="386" fill="#555" fontSize="9.5">- _phone : string</text>
+          <text x="30" y="400" fill="#555" fontSize="9.5">- _summary : string</text>
+          <text x="30" y="414" fill="#555" fontSize="9.5">- _exps : List&lt;Experience&gt;</text>
+          <text x="30" y="428" fill="#555" fontSize="9.5">- _edus : List&lt;Education&gt;</text>
+          <text x="30" y="442" fill="#555" fontSize="9.5">- _skills : List&lt;string&gt;</text>
+          <text x="30" y="456" fill="#555" fontSize="9.5">- _projs : List&lt;Project&gt;</text>
+          <text x="30" y="470" fill="#555" fontSize="9.5">- _langs : List&lt;Language&gt;</text>
+          <text x="30" y="484" fill="#555" fontSize="9.5">- _github, _portfolio, _linkedin : string?</text>
+          <text x="30" y="506" fill="#888" fontSize="9" fontStyle="italic">Общие методы: Reset, SetPersonalInfo,</text>
+          <text x="30" y="518" fill="#888" fontSize="9" fontStyle="italic">SetSummary, AddExperience, AddEducation,</text>
+          <text x="30" y="530" fill="#888" fontSize="9" fontStyle="italic">AddProject, AddLanguage, GetResult</text>
+
           {/* ─── ITResumeBuilder ─── */}
-          <rect x="20" y="340" width="380" height="310" rx="5" fill="#fff" stroke="#4472c4" strokeWidth="2"/>
-          <rect x="20" y="340" width="380" height="30" rx="5" fill="#dae8fc" stroke="#4472c4" strokeWidth="2"/>
-          <text x="210" y="360" textAnchor="middle" fill="#1a3b6b" fontSize="12" fontWeight="bold">ITResumeBuilder</text>
-          {/* fields */}
-          <text x="30" y="384" fill="#333" fontSize="9.5">- _name : string</text>
-          <text x="30" y="398" fill="#333" fontSize="9.5">- _email : string</text>
-          <text x="30" y="412" fill="#333" fontSize="9.5">- _phone : string</text>
-          <text x="30" y="426" fill="#333" fontSize="9.5">- _summary : string</text>
-          <text x="30" y="440" fill="#333" fontSize="9.5">- _exps : List&lt;Experience&gt;</text>
-          <text x="30" y="454" fill="#333" fontSize="9.5">- _edus : List&lt;Education&gt;</text>
-          <text x="30" y="468" fill="#333" fontSize="9.5">- _skills : List&lt;string&gt;</text>
-          <text x="30" y="482" fill="#333" fontSize="9.5">- _projs : List&lt;Project&gt;</text>
-          <text x="30" y="496" fill="#333" fontSize="9.5">- _langs : List&lt;Language&gt;</text>
-          <text x="30" y="510" fill="#333" fontSize="9.5">- _github : string?</text>
-          <text x="30" y="524" fill="#333" fontSize="9.5">- _portfolio : string?</text>
-          <text x="30" y="538" fill="#333" fontSize="9.5">- _linkedin : string?</text>
-          <line x1="28" y1="546" x2="392" y2="546" stroke="#4472c4" strokeWidth="0.7"/>
-          {/* methods */}
-          <text x="30" y="562" fill="#333" fontSize="9.5">+ Reset() : void</text>
-          <text x="30" y="576" fill="#333" fontSize="9.5">+ SetPersonalInfo(n, e, p) : void</text>
-          <text x="30" y="590" fill="#333" fontSize="9.5">+ SetSummary(s) : void</text>
-          <text x="30" y="604" fill="#333" fontSize="9.5">+ AddExperience(e) / AddEducation(e) : void</text>
-          <text x="30" y="618" fill="#333" fontSize="9.5">+ AddSkills(s) : void  ← adds Git, Linux</text>
-          <text x="30" y="632" fill="#333" fontSize="9.5">+ AddProject(p) / AddLanguage(l) : void</text>
-          <text x="30" y="646" fill="#555" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void  ← gh defaults</text>
+          <rect x="400" y="320" width="260" height="218" rx="5" fill="#fff" stroke="#4472c4" strokeWidth="2"/>
+          <rect x="400" y="320" width="260" height="30" rx="5" fill="#dae8fc" stroke="#4472c4" strokeWidth="2"/>
+          <text x="530" y="340" textAnchor="middle" fill="#1a3b6b" fontSize="12" fontWeight="bold">ITResumeBuilder</text>
+          {/* fields — same as shared */}
+          <text x="410" y="364" fill="#999" fontSize="9" fontStyle="italic">поля: см. общие поля ←</text>
+          <line x1="408" y1="374" x2="652" y2="374" stroke="#4472c4" strokeWidth="0.7"/>
+          {/* only unique methods shown */}
+          <text x="410" y="390" fill="#333" fontSize="9.5" fontWeight="bold">Уникальная логика:</text>
+          <text x="410" y="408" fill="#333" fontSize="9.5">+ AddSkills(s) : void</text>
+          <rect x="420" y="414" width="228" height="36" rx="3" fill="#e3f2fd" stroke="#4472c4" strokeWidth="0.7"/>
+          <text x="428" y="428" fill="#1565c0" fontSize="9">_skills.AddRange(s);</text>
+          <text x="428" y="442" fill="#1565c0" fontSize="9" fontWeight="bold">if !contains → add "Git", "Linux"</text>
+          <text x="410" y="464" fill="#333" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void</text>
+          <rect x="420" y="470" width="228" height="36" rx="3" fill="#e3f2fd" stroke="#4472c4" strokeWidth="0.7"/>
+          <text x="428" y="484" fill="#1565c0" fontSize="9" fontWeight="bold">_github = gh ?? "https://github.com/"</text>
+          <text x="428" y="498" fill="#1565c0" fontSize="9">_portfolio = pf;  _linkedin = li;</text>
+          <text x="410" y="524" fill="#333" fontSize="9.5">+ GetResult() : Resume  (+ Reset)</text>
 
           {/* ─── DesignResumeBuilder ─── */}
-          <rect x="440" y="340" width="380" height="310" rx="5" fill="#fff" stroke="#4472c4" strokeWidth="2"/>
-          <rect x="440" y="340" width="380" height="30" rx="5" fill="#dae8fc" stroke="#4472c4" strokeWidth="2"/>
-          <text x="630" y="360" textAnchor="middle" fill="#1a3b6b" fontSize="12" fontWeight="bold">DesignResumeBuilder</text>
-          {/* fields */}
-          <text x="450" y="384" fill="#333" fontSize="9.5">- _name : string</text>
-          <text x="450" y="398" fill="#333" fontSize="9.5">- _email : string</text>
-          <text x="450" y="412" fill="#333" fontSize="9.5">- _phone : string</text>
-          <text x="450" y="426" fill="#333" fontSize="9.5">- _summary : string</text>
-          <text x="450" y="440" fill="#333" fontSize="9.5">- _exps : List&lt;Experience&gt;</text>
-          <text x="450" y="454" fill="#333" fontSize="9.5">- _edus : List&lt;Education&gt;</text>
-          <text x="450" y="468" fill="#333" fontSize="9.5">- _skills : List&lt;string&gt;</text>
-          <text x="450" y="482" fill="#333" fontSize="9.5">- _projs : List&lt;Project&gt;</text>
-          <text x="450" y="496" fill="#333" fontSize="9.5">- _langs : List&lt;Language&gt;</text>
-          <text x="450" y="510" fill="#333" fontSize="9.5">- _github : string?</text>
-          <text x="450" y="524" fill="#333" fontSize="9.5">- _portfolio : string?</text>
-          <text x="450" y="538" fill="#333" fontSize="9.5">- _linkedin : string?</text>
-          <line x1="448" y1="546" x2="812" y2="546" stroke="#4472c4" strokeWidth="0.7"/>
-          {/* methods */}
-          <text x="450" y="562" fill="#333" fontSize="9.5">+ Reset() : void</text>
-          <text x="450" y="576" fill="#333" fontSize="9.5">+ SetPersonalInfo(n, e, p) : void</text>
-          <text x="450" y="590" fill="#333" fontSize="9.5">+ SetSummary(s) : void</text>
-          <text x="450" y="604" fill="#333" fontSize="9.5">+ AddExperience(e) / AddEducation(e) : void</text>
-          <text x="450" y="618" fill="#333" fontSize="9.5">+ AddSkills(s) : void  ← adds Figma, Adobe CC</text>
-          <text x="450" y="632" fill="#333" fontSize="9.5">+ AddProject(p) / AddLanguage(l) : void</text>
-          <text x="450" y="646" fill="#555" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void  ← pf defaults</text>
+          <rect x="700" y="320" width="260" height="218" rx="5" fill="#fff" stroke="#7b1fa2" strokeWidth="2"/>
+          <rect x="700" y="320" width="260" height="30" rx="5" fill="#f3e5f5" stroke="#7b1fa2" strokeWidth="2"/>
+          <text x="830" y="340" textAnchor="middle" fill="#4a148c" fontSize="12" fontWeight="bold">DesignResumeBuilder</text>
+          {/* fields — same as shared */}
+          <text x="710" y="364" fill="#999" fontSize="9" fontStyle="italic">поля: см. общие поля ←</text>
+          <line x1="708" y1="374" x2="952" y2="374" stroke="#7b1fa2" strokeWidth="0.7"/>
+          {/* only unique methods shown */}
+          <text x="710" y="390" fill="#333" fontSize="9.5" fontWeight="bold">Уникальная логика:</text>
+          <text x="710" y="408" fill="#333" fontSize="9.5">+ AddSkills(s) : void</text>
+          <rect x="720" y="414" width="228" height="36" rx="3" fill="#fce4ec" stroke="#7b1fa2" strokeWidth="0.7"/>
+          <text x="728" y="428" fill="#880e4f" fontSize="9">_skills.AddRange(s);</text>
+          <text x="728" y="442" fill="#880e4f" fontSize="9" fontWeight="bold">if !contains → add "Figma", "Adobe CC"</text>
+          <text x="710" y="464" fill="#333" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void</text>
+          <rect x="720" y="470" width="228" height="36" rx="3" fill="#fce4ec" stroke="#7b1fa2" strokeWidth="0.7"/>
+          <text x="728" y="484" fill="#880e4f" fontSize="9">_github = gh;</text>
+          <text x="728" y="498" fill="#880e4f" fontSize="9" fontWeight="bold">_portfolio = pf ?? "https://behance.net/"</text>
+          <text x="710" y="524" fill="#333" fontSize="9.5">+ GetResult() : Resume  (+ Reset)</text>
 
           {/* ─── ManagerResumeBuilder ─── */}
-          <rect x="860" y="340" width="380" height="310" rx="5" fill="#fff" stroke="#4472c4" strokeWidth="2"/>
-          <rect x="860" y="340" width="380" height="30" rx="5" fill="#dae8fc" stroke="#4472c4" strokeWidth="2"/>
-          <text x="1050" y="360" textAnchor="middle" fill="#1a3b6b" fontSize="12" fontWeight="bold">ManagerResumeBuilder</text>
-          {/* fields */}
-          <text x="870" y="384" fill="#333" fontSize="9.5">- _name : string</text>
-          <text x="870" y="398" fill="#333" fontSize="9.5">- _email : string</text>
-          <text x="870" y="412" fill="#333" fontSize="9.5">- _phone : string</text>
-          <text x="870" y="426" fill="#333" fontSize="9.5">- _summary : string</text>
-          <text x="870" y="440" fill="#333" fontSize="9.5">- _exps : List&lt;Experience&gt;</text>
-          <text x="870" y="454" fill="#333" fontSize="9.5">- _edus : List&lt;Education&gt;</text>
-          <text x="870" y="468" fill="#333" fontSize="9.5">- _skills : List&lt;string&gt;</text>
-          <text x="870" y="482" fill="#333" fontSize="9.5">- _projs : List&lt;Project&gt;</text>
-          <text x="870" y="496" fill="#333" fontSize="9.5">- _langs : List&lt;Language&gt;</text>
-          <text x="870" y="510" fill="#333" fontSize="9.5">- _github : string?</text>
-          <text x="870" y="524" fill="#333" fontSize="9.5">- _portfolio : string?</text>
-          <text x="870" y="538" fill="#333" fontSize="9.5">- _linkedin : string?</text>
-          <line x1="868" y1="546" x2="1232" y2="546" stroke="#4472c4" strokeWidth="0.7"/>
-          {/* methods */}
-          <text x="870" y="562" fill="#333" fontSize="9.5">+ Reset() : void</text>
-          <text x="870" y="576" fill="#333" fontSize="9.5">+ SetPersonalInfo(n, e, p) : void</text>
-          <text x="870" y="590" fill="#333" fontSize="9.5">+ SetSummary(s) : void</text>
-          <text x="870" y="604" fill="#333" fontSize="9.5">+ AddExperience(e) / AddEducation(e) : void</text>
-          <text x="870" y="618" fill="#333" fontSize="9.5">+ AddSkills(s) : void  ← adds Leadership, Agile</text>
-          <text x="870" y="632" fill="#333" fontSize="9.5">+ AddProject(p) / AddLanguage(l) : void</text>
-          <text x="870" y="646" fill="#555" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void  ← li defaults</text>
+          <rect x="1000" y="320" width="240" height="218" rx="5" fill="#fff" stroke="#00695c" strokeWidth="2"/>
+          <rect x="1000" y="320" width="240" height="30" rx="5" fill="#e0f2f1" stroke="#00695c" strokeWidth="2"/>
+          <text x="1120" y="340" textAnchor="middle" fill="#004d40" fontSize="11" fontWeight="bold">ManagerResumeBuilder</text>
+          {/* fields — same as shared */}
+          <text x="1010" y="364" fill="#999" fontSize="9" fontStyle="italic">поля: см. общие поля ←</text>
+          <line x1="1008" y1="374" x2="1232" y2="374" stroke="#00695c" strokeWidth="0.7"/>
+          {/* only unique methods shown */}
+          <text x="1010" y="390" fill="#333" fontSize="9.5" fontWeight="bold">Уникальная логика:</text>
+          <text x="1010" y="408" fill="#333" fontSize="9.5">+ AddSkills(s) : void</text>
+          <rect x="1010" y="414" width="220" height="36" rx="3" fill="#e8f5e9" stroke="#00695c" strokeWidth="0.7"/>
+          <text x="1018" y="428" fill="#1b5e20" fontSize="9">_skills.AddRange(s);</text>
+          <text x="1018" y="442" fill="#1b5e20" fontSize="9" fontWeight="bold">if !contains → add "Leadership",</text>
+          <text x="1010" y="464" fill="#333" fontSize="9.5">+ SetLinks(gh?, pf?, li?) : void</text>
+          <rect x="1010" y="470" width="220" height="36" rx="3" fill="#e8f5e9" stroke="#00695c" strokeWidth="0.7"/>
+          <text x="1018" y="484" fill="#1b5e20" fontSize="9">_github = gh;  _portfolio = pf;</text>
+          <text x="1018" y="498" fill="#1b5e20" fontSize="9" fontWeight="bold">_linkedin = li ?? "https://linkedin.com/"</text>
+          <text x="1010" y="524" fill="#333" fontSize="9.5">+ GetResult() : Resume  (+ Reset)</text>
+          {/* "Agile/Scrum" continuation label */}
+          <text x="1018" y="454" fill="#1b5e20" fontSize="9" fontWeight="bold">{"                           "}"Agile/Scrum"</text>
+
+          {/* ──── Dashed lines from note to builders ──── */}
+          <line x1="360" y1="420" x2="400" y2="420" stroke="#c9a825" strokeWidth="1" strokeDasharray="4,3"/>
+          <line x1="360" y1="440" x2="700" y2="420" stroke="#c9a825" strokeWidth="1" strokeDasharray="4,3"/>
+          <line x1="360" y1="460" x2="1000" y2="420" stroke="#c9a825" strokeWidth="1" strokeDasharray="4,3"/>
 
           {/* ──── ROW 2 ARROWS: realization (dashed + hollow triangle) ──── */}
           {/* IT → IResumeBuilder */}
-          <line x1="210" y1="340" x2="950" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
+          <line x1="530" y1="320" x2="950" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
           {/* Design → IResumeBuilder */}
-          <line x1="630" y1="340" x2="1030" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
+          <line x1="830" y1="320" x2="1020" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
           {/* Manager → IResumeBuilder */}
-          <line x1="1050" y1="340" x2="1060" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
+          <line x1="1120" y1="320" x2="1080" y2="300" stroke="#666" strokeWidth="1.4" strokeDasharray="8,4" markerEnd="url(#real)"/>
 
           {/* ================================================================== */}
           {/*  ROW 3 — Resume (Product) + value-type records                     */}
@@ -279,14 +280,14 @@ export default function SectionUml2() {
 
           {/* ──── ROW 3 ARROWS ──── */}
           {/* Builders ··> Resume  (dependency «create») */}
-          <line x1="210" y1="650" x2="210" y2="720" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
-          <text x="220" y="690" fill="#666" fontSize="8">{"«create»"}</text>
+          <line x1="530" y1="538" x2="330" y2="720" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
+          <text x="400" y="630" fill="#666" fontSize="8">{"«create»"}</text>
 
-          <line x1="630" y1="650" x2="400" y2="720" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
-          <text x="530" y="680" fill="#666" fontSize="8">{"«create»"}</text>
+          <line x1="830" y1="538" x2="360" y2="720" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
+          <text x="600" y="630" fill="#666" fontSize="8">{"«create»"}</text>
 
-          <line x1="1050" y1="650" x2="460" y2="738" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
-          <text x="770" y="682" fill="#666" fontSize="8">{"«create»"}</text>
+          <line x1="1120" y1="538" x2="400" y2="720" stroke="#666" strokeWidth="1.3" strokeDasharray="7,4" markerEnd="url(#dep)"/>
+          <text x="780" y="620" fill="#666" fontSize="8">{"«create»"}</text>
 
           {/* Resume → Experience (composition) */}
           <line x1="460" y1="810" x2="530" y2="770" stroke="#666" strokeWidth="1.2" markerStart="url(#comp)"/>
@@ -320,8 +321,8 @@ export default function SectionUml2() {
           <text x="1030" y="279" textAnchor="middle" fill="#2d6a2d" fontSize="9" fontWeight="bold">Builder (GoF)</text>
 
           {/* ConcreteBuilder role */}
-          <rect x="440" y="656" width="160" height="22" rx="10" fill="#dae8fc" stroke="#4472c4" strokeWidth="1"/>
-          <text x="520" y="671" textAnchor="middle" fill="#1a3b6b" fontSize="9" fontWeight="bold">ConcreteBuilder (GoF)</text>
+          <rect x="400" y="544" width="160" height="22" rx="10" fill="#dae8fc" stroke="#4472c4" strokeWidth="1"/>
+          <text x="480" y="559" textAnchor="middle" fill="#1a3b6b" fontSize="9" fontWeight="bold">ConcreteBuilder (GoF)</text>
 
           {/* Product role */}
           <rect x="20" y="1034" width="110" height="22" rx="10" fill="#f2dcdb" stroke="#c0504d" strokeWidth="1"/>
