@@ -192,7 +192,7 @@ export default function SectionCode2() {
   return (
     <>
       <div className="sh">
-        <div className="sh-num">Раздел 05</div>
+        <div className="sh-num">Раздел 04</div>
         <div className="sh-title">Код с паттерном Builder (C#) + React Frontend</div>
         <div className="sh-sub">C# бэкенд (ASP.NET Core) + React клиент вместо WinForms</div>
       </div>

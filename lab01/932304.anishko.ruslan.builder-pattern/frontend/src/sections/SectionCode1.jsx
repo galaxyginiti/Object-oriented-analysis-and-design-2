@@ -113,7 +113,7 @@ export default function SectionCode1() {
   return (
     <>
       <div className="sh">
-        <div className="sh-num">Раздел 04</div>
+        <div className="sh-num">Раздел 03</div>
         <div className="sh-title">Код без паттерна (C#)</div>
         <div className="sh-sub">Соответствует UML из раздела 02</div>
       </div>

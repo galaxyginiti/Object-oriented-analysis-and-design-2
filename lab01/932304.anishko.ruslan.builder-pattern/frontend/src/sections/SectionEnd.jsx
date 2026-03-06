@@ -2,7 +2,7 @@ export default function SectionEnd() {
   return (
     <>
       <div className="sh">
-        <div className="sh-num">Раздел 06</div>
+        <div className="sh-num">Раздел 05</div>
         <div className="sh-title">Вывод: влияние паттерна на программу</div>
         <div className="sh-sub">Сравнение до и после внедрения Builder</div>
       </div>

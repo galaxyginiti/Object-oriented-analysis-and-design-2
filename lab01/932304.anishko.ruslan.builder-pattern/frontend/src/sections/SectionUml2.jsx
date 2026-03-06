@@ -2,7 +2,7 @@ export default function SectionUml2() {
   return (
     <>
       <div className="sh">
-        <div className="sh-num">Раздел 03</div>
+        <div className="sh-num">Раздел 02</div>
         <div className="sh-title">UML-диаграмма с паттерном Builder</div>
         <div className="sh-sub">Диаграмма классов в стиле draw.io — GoF: Builder</div>
       </div>
