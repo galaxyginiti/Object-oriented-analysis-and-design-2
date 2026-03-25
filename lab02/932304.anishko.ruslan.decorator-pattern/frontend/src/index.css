@@ -1,0 +1,63 @@
+/* ── design tokens ── */
+:root {
+  --bg: #faf6f1;
+  --surface: #fff;
+  --accent: #e65100;
+  --accent-dark: #bf360c;
+  --code-bg: #1e1e2e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: #222; }
+
+/* ── sections ── */
+.sh { margin: 0 auto; max-width: 960px; padding: 2rem 1rem; }
+.sh-num { color: var(--accent); font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .25rem; }
+.sh-title { font-size: 1.6rem; font-weight: 800; margin: 0 0 .25rem; }
+.sh-sub { color: #666; margin: 0 0 1.5rem; font-size: .95rem; }
+
+/* ── cards / blocks ── */
+.block { background: var(--surface); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.block h3 { margin: 0 0 .5rem; font-size: 1.1rem; }
+.block p  { margin: 0 0 .5rem; line-height: 1.55; }
+
+/* ── coloured info boxes ── */
+.box-r { border-left: 4px solid #e53935; background: #ffebee; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.box-g { border-left: 4px solid #43a047; background: #e8f5e9; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.box-b { border-left: 4px solid #1e88e5; background: #e3f2fd; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.box-o { border-left: 4px solid #e65100; background: #fff3e0; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+
+/* ── comparison grid ── */
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+.cmp { border-radius: 10px; padding: 1.25rem; }
+.cmp.bad  { background: #ffebee; border: 1px solid #ef9a9a; }
+.cmp.good { background: #e8f5e9; border: 1px solid #a5d6a7; }
+.cmp h4 { margin: 0 0 .5rem; }
+
+/* ── code blocks ── */
+.cc { border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; font-size: .85rem; }
+.cc-h { background: #313244; color: #cdd6f4; padding: .5rem 1rem; font-weight: 600; font-size: .8rem; display: flex; align-items: center; gap: .5rem; }
+.cc-b { background: var(--code-bg); color: #cdd6f4; padding: 1rem; overflow-x: auto; line-height: 1.6; white-space: pre; font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+
+/* ── syntax tokens ── */
+.kw  { color: #cba6f7; }
+.tp  { color: #89b4fa; }
+.str { color: #a6e3a1; }
+.cm  { color: #6c7086; font-style: italic; }
+.fn  { color: #f9e2af; }
+.num { color: #fab387; }
+.at  { color: #f38ba8; }
+.op  { color: #89dceb; }
+
+/* ── UML container ── */
+.uml-wrap { overflow-x: auto; padding: 1rem 0; }
+.uml-wrap svg { display: block; margin: 0 auto; }
+
+/* ── participants list ── */
+.participants { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .75rem; margin-bottom: 1rem; }
+.participant { background: var(--surface); border-radius: 8px; padding: .75rem 1rem; border: 1px solid #e0e0e0; }
+.participant strong { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .cmp-grid { grid-template-columns: 1fr; }
+  .sh { padding: 1.5rem .75rem; }
+}
