@@ -34,7 +34,7 @@ export default function SectionIdea() {
 
       {/* Участники */}
       <div className="block">
-        <h3>Участники паттерна Decorator (GoF)</h3>
+        <h3>Участники паттерна Decorator</h3>
         <div className="participants">
           <div className="participant">
             <strong>① Component</strong><br />

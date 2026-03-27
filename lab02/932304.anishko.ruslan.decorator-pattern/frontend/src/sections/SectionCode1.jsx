@@ -3,7 +3,7 @@ import CodeBlock from '../components/CodeBlock';
 export default function SectionCode1() {
   return (
     <section className="sh">
-      <div className="sh-num">04</div>
+      <div className="sh-num">03</div>
       <h1 className="sh-title">Код — без паттерна</h1>
       <p className="sh-sub">
         Монолитная структура: один класс с булевыми флагами и if-else цепочками

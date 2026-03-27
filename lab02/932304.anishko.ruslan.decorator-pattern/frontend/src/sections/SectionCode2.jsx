@@ -3,7 +3,7 @@ import CodeBlock from '../components/CodeBlock';
 export default function SectionCode2() {
   return (
     <section className="sh">
-      <div className="sh-num">05</div>
+      <div className="sh-num">04</div>
       <h1 className="sh-title">Код — с паттерном Decorator</h1>
       <p className="sh-sub">
         Чистая иерархия: Component → Decorator → ConcreteDecorators

@@ -2,6 +2,7 @@
 // Кофейня — С паттерном Decorator
 // ============================================================
 // Участники GoF:
+// Участники паттерна:
 //   ① Component       — Beverage  (абстрактный интерфейс)
 //   ② ConcreteComponent — Espresso, HouseBlend, DarkRoast, GreenTea
 //   ③ Decorator        — CondimentDecorator (хранит указатель на Component)

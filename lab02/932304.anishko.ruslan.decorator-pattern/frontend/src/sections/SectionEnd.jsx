@@ -1,7 +1,7 @@
 export default function SectionEnd() {
   return (
     <section className="sh">
-      <div className="sh-num">06</div>
+      <div className="sh-num">05</div>
       <h1 className="sh-title">Вывод</h1>
       <p className="sh-sub">Сравнение подходов и итоги</p>
 
@@ -57,7 +57,7 @@ export default function SectionEnd() {
       </div>
 
       <div className="box-b">
-        <strong>Паттерн Decorator</strong> — структурный паттерн GoF, позволяющий динамически
+        <strong>Паттерн Decorator</strong> — структурный паттерн, позволяющий динамически
         добавлять объектам новые обязанности, оборачивая их в объекты-декораторы через
         единый интерфейс. Альтернатива созданию подклассов для расширения функциональности.
       </div>
