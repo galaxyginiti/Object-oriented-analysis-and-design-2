@@ -1,0 +1,14 @@
+# Target labels
+ httplib-populate
+# Source files and their labels
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/CMakeFiles/httplib-populate
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/CMakeFiles/httplib-populate.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/CMakeFiles/httplib-populate-complete.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-build.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-configure.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-download.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-install.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-mkdir.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-patch.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-test.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/httplib-subbuild/httplib-populate-prefix/src/httplib-populate-stamp/httplib-populate-update.rule

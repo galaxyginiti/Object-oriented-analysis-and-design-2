@@ -1,0 +1,3 @@
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-with-pattern/build/_deps/json-subbuild/CMakeFiles/json-populate.dir
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-with-pattern/build/_deps/json-subbuild/CMakeFiles/edit_cache.dir
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-with-pattern/build/_deps/json-subbuild/CMakeFiles/rebuild_cache.dir

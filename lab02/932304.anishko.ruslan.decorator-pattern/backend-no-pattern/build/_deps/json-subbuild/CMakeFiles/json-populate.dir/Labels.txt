@@ -1,0 +1,14 @@
+# Target labels
+ json-populate
+# Source files and their labels
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/CMakeFiles/json-populate
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/CMakeFiles/json-populate.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/CMakeFiles/json-populate-complete.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-build.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-configure.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-download.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-install.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-mkdir.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-patch.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-test.rule
+/Users/ruslan/dev/temp/Object-oriented-analysis-and-design-2/lab02/932304.anishko.ruslan.decorator-pattern/backend-no-pattern/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-update.rule
