@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram name="Value Object" id="value-object-diagram">
+        <mxGraphModel dx="352" dy="303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="money" value="Money" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=42;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="60" width="320" height="302" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-f1" value="- amount: Integer" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="42" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-f2" value="- currency: String&amp;nbsp;" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="68" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m0" value="+ of(amount, currency): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontStyle=4" parent="money" vertex="1">
+                    <mxGeometry y="94" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m1" value="+ plus(other: Money): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="120" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m2" value="+ minus(other: Money): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="146" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m3" value="+ times(k: Integer): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="172" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m4" value="+ negate(): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="198" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m5" value="+ equals(o: Object): boolean" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="224" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m6" value="+ hashCode(): Integer" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="250" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="money-m7" value="- assertSameCurrency(other: Money)" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="money" vertex="1">
+                    <mxGeometry y="276" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx" value="Transaction" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=42;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="60" width="320" height="198" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-f0" value="- id: String" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="tx" vertex="1">
+                    <mxGeometry y="42" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-f1" value="- amount: Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontStyle=0;" parent="tx" vertex="1">
+                    <mxGeometry y="68" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-f2" value="- category: String" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="tx" vertex="1">
+                    <mxGeometry y="94" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-f3" value="- description: String" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="tx" vertex="1">
+                    <mxGeometry y="120" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-f4" value="- createdAt: Integer" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="tx" vertex="1">
+                    <mxGeometry y="146" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="tx-m1" value="+ getAmount(): Money" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="tx" vertex="1">
+                    <mxGeometry y="172" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="wal" value="Wallet" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=42;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="320" width="320" height="122" as="geometry"/>
+                </mxCell>
+                <mxCell id="wal-m1" value="+ totalByCurrency(txs): String" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="wal" vertex="1">
+                    <mxGeometry y="42" width="320" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="wal-m2" value="+ totalByCategory(txs): String" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="wal" vertex="1">
+                    <mxGeometry y="78" width="320" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo" value="TransactionRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=42;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="60" width="320" height="172" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo-f1" value="- col: String[*]: MongoCollection" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="repo" vertex="1">
+                    <mxGeometry y="42" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo-m1" value="+ save(t: Transaction): Transaction" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="repo" vertex="1">
+                    <mxGeometry y="68" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo-m2" value="+ findAll(): String[*]:&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;Transaction&lt;/span&gt;" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="repo" vertex="1">
+                    <mxGeometry y="94" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo-m3" value="+ deleteById(id: String): boolean" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="repo" vertex="1">
+                    <mxGeometry y="120" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="repo-m4" value="+ clear()" style="text;strokeColor=#000000;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;" parent="repo" vertex="1">
+                    <mxGeometry y="146" width="320" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo" value="MongoDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#FFFFFF;strokeColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="250" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-tx-money" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" source="tx" target="money" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-wal-tx" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" source="wal" target="tx" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-wal-money" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.85;entryDx=0;entryDy=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" source="wal" target="money" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-repo-tx" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" source="repo" target="tx" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-repo-mongo" style="endArrow=open;endFill=0;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" source="repo" target="mongo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;{&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;_id: ObjectId,&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;amount: {&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;value: Decimal128,&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;currency: &quot;USD&quot;&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;},&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;category: &quot;food&quot;,&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;description: &quot;...&quot;,&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;createdAt: ISODate&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;;&quot;&gt;}&lt;/span&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFFFF;strokeColor=#000000;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="377" width="190" height="146" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2" target="mongo">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

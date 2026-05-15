@@ -1,0 +1,42 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+group 'lab04.wallet'
+version '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Web framework
+    implementation 'io.javalin:javalin:6.3.0'
+
+    // MongoDB sync driver
+    implementation 'org.mongodb:mongodb-driver-sync:5.1.4'
+
+    // JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.0'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.0'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-simple:2.0.16'
+}
+
+application {
+    mainClass = 'lab04.wallet.Main'
+    // Порт можно переопределить переменной окружения PORT (по умолчанию 8001)
+    applicationDefaultJvmArgs = ['-Dorg.slf4j.simpleLogger.defaultLogLevel=info']
+}
+
+tasks.named('run') {
+    standardInput = System.in
+}

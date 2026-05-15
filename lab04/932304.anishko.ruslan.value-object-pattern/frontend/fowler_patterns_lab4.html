@@ -1,0 +1,406 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;padding-top:1rem}
+.nav button{font-size:12px;padding:6px 12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-secondary);cursor:pointer;transition:all 0.15s}
+.nav button.active,.nav button:hover{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;display:none}
+.card.visible{display:block}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:var(--border-radius-md);margin-bottom:1rem;font-weight:500}
+.tag.arch{background:#E6F1FB;color:#0C447C}
+.tag.data{background:#E1F5EE;color:#085041}
+.tag.test{background:#FAEEDA;color:#633806}
+h2{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:0.3rem}
+.subtitle{font-size:14px;color:var(--color-text-secondary);margin-bottom:1.25rem;font-style:italic}
+.section-title{font-size:12px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.05em;margin:1.25rem 0 0.5rem}
+p{font-size:15px;line-height:1.7;color:var(--color-text-primary);margin-bottom:0.75rem}
+pre{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:1rem;font-size:12px;font-family:var(--font-mono);overflow-x:auto;line-height:1.6;color:var(--color-text-primary)}
+.when{background:var(--color-background-secondary);border-left:3px solid #378ADD;border-radius:0;padding:0.75rem 1rem;font-size:14px;line-height:1.6;color:var(--color-text-primary)}
+.related{display:flex;flex-wrap:wrap;gap:8px;margin-top:0.5rem}
+.pill{font-size:12px;padding:4px 10px;border:0.5px solid var(--color-border-secondary);border-radius:100px;color:var(--color-text-secondary)}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.25rem 0}
+</style>
+
+<h2 class="sr-only">Справочник архитектурных паттернов Фаулера — Лаба 4</h2>
+
+<div class="nav" id="nav"></div>
+<div id="content"></div>
+
+<script>
+const patterns = [
+  {
+    id:'gateway',
+    name:'Шлюз',
+    en:'Gateway',
+    tag:'Базовый',
+    tagClass:'arch',
+    subtitle:'Инкапсулирует доступ к внешней системе или ресурсу',
+    problem:'Внешний API имеет неудобный интерфейс: не соответствует соглашениям вашего языка, возвращает коды ошибок вместо исключений, принимает универсальные аргументы вместо строго типизированных.',
+    solution:'Создайте класс-обёртку с удобным интерфейсом поверх внешней системы. Клиентский код работает только со шлюзом — он не знает о деталях внешнего API.',
+    when:'Используйте, когда нужно изолировать код от внешней системы или ресурса. Это упрощает тестирование (можно подменить шлюз фиктивной службой) и позволяет менять внешний API без изменения клиентского кода.',
+    code:`// Неудобный универсальный интерфейс внешней системы
+int send(String messageType, Object[] args);
+
+// Шлюз — удобный, типизированный интерфейс
+class MessageGateway {
+    public void sendConfirmation(
+            String orderID, int amount, String symbol) {
+        Object[] args = {orderID, amount, symbol};
+        int code = sender.send("CNFRM", args);
+        if (code == NULL_PARAMETER)
+            throw new NullPointerException("Null arg");
+    }
+}
+
+// Клиентский код
+order.confirm() {
+    Environment.getMessageGateway()
+        .sendConfirmation(id, amount, symbol);
+}`,
+    related:['Отделённый интерфейс','Фиктивная служба','Дополнительный модуль']
+  },
+  {
+    id:'mapper',
+    name:'Преобразователь',
+    en:'Mapper',
+    tag:'Базовый',
+    tagClass:'arch',
+    subtitle:'Изолирует две подсистемы друг от друга, организуя взаимодействие между ними',
+    problem:'Две подсистемы должны взаимодействовать, но при этом не должны зависеть друг от друга — ни напрямую, ни через общий элемент. Ни одну из подсистем нельзя изменить.',
+    solution:'Создайте отдельный объект-преобразователь, который управляет взаимодействием между подсистемами. Ни одна из них не знает о существовании другой — и обе не знают о существовании преобразователя.',
+    when:'Применяйте только когда ни одна из систем не должна зависеть от взаимодействия. Это действительно важно лишь при сложном взаимодействии, слабо связанном с основной функцией каждой системы. Главная область применения — обслуживание взаимодействий с БД (Data Mapper).',
+    code:`// Подсистема A — ничего не знает о B и о преобразователе
+class OrderService {
+    void placeOrder(Order order) { /* бизнес-логика */ }
+}
+
+// Подсистема B — ничего не знает о A и о преобразователе
+class Database {
+    void save(String table, Map<String,Object> row) { }
+}
+
+// Преобразователь — знает обе стороны, управляет отображением
+class OrderMapper {
+    void insert(Order order) {
+        Map<String,Object> row = new HashMap<>();
+        row.put("id", order.getId());
+        row.put("amount", order.getAmount());
+        database.save("orders", row);
+    }
+}`,
+    related:['Шлюз','Преобразователь данных (Data Mapper)']
+  },
+  {
+    id:'separated',
+    name:'Отделённый интерфейс',
+    en:'Separated Interface',
+    tag:'Базовый',
+    tagClass:'arch',
+    subtitle:'Размещает интерфейс и его реализацию в разных пакетах',
+    problem:'Код из одного слоя должен вызывать код другого слоя, о существовании которого он не должен знать. Прямая зависимость нарушила бы правила расслоения архитектуры.',
+    solution:'Определите интерфейс в пакете клиента (или в отдельном пакете), а реализацию — в другом пакете. Клиент зависит только от интерфейса, реализация зависит от интерфейса, но не наоборот.',
+    when:'Применяйте, когда нужно разорвать зависимость между двумя подсистемами, или когда требуется несколько независимых реализаций одного поведения. Не злоупотребляйте — разделение каждого класса излишне усложняет проект.',
+    code:`// Пакет "domain" (клиент)
+package domain;
+
+public interface TaxCalculator {
+    TaxInfo calculate(Order order, Address addr);
+}
+
+// Пакет "infrastructure" (реализация)
+package infrastructure;
+
+public class WebTaxCalculator implements TaxCalculator {
+    public TaxInfo calculate(Order order, Address addr) {
+        // вызов внешнего веб-сервиса
+    }
+}
+
+// Клиент зависит только от интерфейса
+package domain;
+
+class OrderProcessor {
+    TaxCalculator taxCalc; // инжектируется снаружи
+    void process(Order o) {
+        TaxInfo t = taxCalc.calculate(o, o.getAddress());
+    }
+}`,
+    related:['Дополнительный модуль','Шлюз','Фиктивная служба']
+  },
+  {
+    id:'valueobj',
+    name:'Объект-значение',
+    en:'Value Object',
+    tag:'Базовый',
+    tagClass:'arch',
+    subtitle:'Небольшой простой объект, равенство которого определяется по значению полей',
+    problem:'Примитивные типы не выражают предметную область. Объекты сравниваются по ссылке, хотя нам важно их содержимое. Операции над «числами» (деньги, координаты) разбросаны по всему коду.',
+    solution:'Создайте неизменяемый класс, переопределив equals() и hashCode() так, чтобы они сравнивали поля. Методы возвращают новые экземпляры вместо изменения текущего.',
+    when:'Применяйте для объектов, описывающих характеристику или измерение: деньги, дата, координаты, диапазон, цвет. Главный вопрос: "мне важно, что это за значение, или что это за конкретный экземпляр?" — если первое, используйте Value Object.',
+    code:`public final class Money {
+    private final int amount;     // в копейках
+    private final String currency;
+
+    public Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    public Money add(Money other) {
+        if (!currency.equals(other.currency))
+            throw new IllegalArgumentException("Разные валюты");
+        return new Money(amount + other.amount, currency);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Money)) return false;
+        Money m = (Money) o;
+        return amount == m.amount
+            && currency.equals(m.currency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount, currency);
+    }
+}
+
+// Использование
+Money price = new Money(500, "RUB");
+Money tax   = new Money(90,  "RUB");
+Money total = price.add(tax);  // Money(590, "RUB") — новый объект`,
+    related:['Коллекция объектов','Встроенное значение (Embedded Value)']
+  },
+  {
+    id:'plugin',
+    name:'Дополнительный модуль',
+    en:'Plugin',
+    tag:'Базовый',
+    tagClass:'arch',
+    subtitle:'Связывает классы во время настройки приложения, а не во время компиляции',
+    problem:'Приложение работает в нескольких средах (тест, продакшн, разные БД) и каждая требует своей реализации некоторого поведения. Менять методы-фабрики с if/else по всему коду при добавлении новой среды — больно.',
+    solution:'Определите отделённый интерфейс для каждого варьируемого поведения. Объект-фабрика Plugin считывает файл настроек и по имени интерфейса возвращает нужную реализацию через рефлексию — без перекомпиляции.',
+    when:'Используйте, когда одно поведение должно иметь несколько реализаций в зависимости от среды развёртывания. Часто применяется вместе с Отделённым интерфейсом и Фиктивной службой.',
+    code:`// Отделённый интерфейс
+interface IdGenerator {
+    Long nextId();
+}
+
+// Реализация для продакшна (Oracle)
+class OracleIdGenerator implements IdGenerator {
+    public Long nextId() {
+        // читает из sequences БД Oracle
+    }
+}
+
+// Реализация для тестов (счётчик в памяти)
+class CounterIdGenerator implements IdGenerator {
+    private long count = 0;
+    public synchronized Long nextId() { return count++; }
+}
+
+// Файл plugin.properties:
+// IdGenerator = com.example.CounterIdGenerator
+
+// Фабрика читает конфиг и создаёт нужный класс
+class PluginFactory {
+    public static Object getPlugin(Class iface) {
+        String className = props.getProperty(iface.getName());
+        return Class.forName(className).newInstance();
+    }
+}
+
+IdGenerator gen = (IdGenerator)
+    PluginFactory.getPlugin(IdGenerator.class);`,
+    related:['Отделённый интерфейс','Фиктивная служба']
+  },
+  {
+    id:'stub',
+    name:'Фиктивная служба',
+    en:'Service Stub',
+    tag:'Тестирование',
+    tagClass:'test',
+    subtitle:'Заменяет внешнюю службу упрощённой реализацией для разработки и тестирования',
+    problem:'Приложение зависит от внешней службы (веб-сервис, платёжный шлюз, служба налогов), которая медленная, нестабильная, платная или требует сетевого подключения — это мешает разработке и тестированию.',
+    solution:'Напишите простую замену (stub) — реализацию того же интерфейса, которая возвращает фиксированные или управляемые результаты. Подключайте нужную реализацию через Plugin или инъекцию зависимостей.',
+    when:'Применяйте, когда зависимость от внешней службы значительно затрудняет разработку или тестирование. Фиктивная служба должна оставаться простой — её цель ускорить работу, а не воспроизвести все поведение реальной службы.',
+    code:`// Общий интерфейс — шлюз к налоговой службе
+interface TaxService {
+    TaxInfo getSalesTaxInfo(
+        String productCode, Address addr, Money amount);
+}
+
+// Простая фиктивная служба — единая ставка для всех
+class FlatRateTaxService implements TaxService {
+    private static final BigDecimal RATE =
+        new BigDecimal("0.05");
+
+    public TaxInfo getSalesTaxInfo(
+            String code, Address addr, Money amount) {
+        return new TaxInfo(RATE, amount.multiply(RATE));
+    }
+}
+
+// Более умная — поддерживает список освобождённых товаров
+class TestTaxService implements TaxService {
+    private static Set<String> exemptions = new HashSet<>();
+
+    public static void addExemption(
+            String product, String state) {
+        exemptions.add(product + ":" + state);
+    }
+
+    public TaxInfo getSalesTaxInfo(
+            String code, Address addr, Money amount) {
+        String key = code + ":" + addr.getStateCode();
+        if (exemptions.contains(key))
+            return new TaxInfo(ZERO, ZERO);
+        return new TaxInfo(FLAT, amount.multiply(FLAT));
+    }
+}`,
+    related:['Шлюз','Дополнительный модуль','Отделённый интерфейс']
+  },
+  {
+    id:'identitymap',
+    name:'Коллекция объектов',
+    en:'Identity Map',
+    tag:'Работа с данными',
+    tagClass:'data',
+    subtitle:'Гарантирует, что каждый объект загружается из базы данных только один раз за сеанс',
+    problem:'При нескольких обращениях к БД за одним объектом создаются разные экземпляры одной записи. Изменение одного не отражается в другом — возникают конфликты при сохранении.',
+    solution:'Ведите реестр (map) всех загруженных объектов — ключ базы данных → объект в памяти. Перед обращением к БД проверяйте реестр: если объект уже загружен — верните его, иначе загрузите и зарегистрируйте.',
+    when:'Применяйте для управления любыми объектами, загруженными из БД и способными измениться. Не нужна для неизменяемых объектов (Value Object) и объектов с зависимым отображением. Каждый сеанс должен иметь свою изолированную коллекцию.',
+    code:`class IdentityMap {
+    private Map<Long, Object> map = new HashMap<>();
+
+    public void put(Long id, Object obj) {
+        map.put(id, obj);
+    }
+
+    public Object get(Long id) {
+        return map.get(id);
+    }
+}
+
+class PersonMapper {
+    private IdentityMap identityMap = new IdentityMap();
+
+    public Person findById(Long id) {
+        // сначала проверяем реестр
+        Person cached = (Person) identityMap.get(id);
+        if (cached != null) return cached;
+
+        // только если нет — идём в БД
+        Person person = loadFromDatabase(id);
+        identityMap.put(id, person);
+        return person;
+    }
+}
+
+// Использование — оба вызова вернут один и тот же экземпляр
+Person p1 = mapper.findById(42L);
+Person p2 = mapper.findById(42L); // из кэша, нет запроса к БД
+assert p1 == p2; // один и тот же объект!`,
+    related:['Единица работы (Unit of Work)','Загрузка по требованию','Объект-значение']
+  },
+  {
+    id:'lazyload',
+    name:'Загрузка по требованию',
+    en:'Lazy Load',
+    tag:'Работа с данными',
+    tagClass:'data',
+    subtitle:'Объект не содержит все нужные данные, но знает, как загрузить их при необходимости',
+    problem:'Загрузка одного объекта автоматически тянет за собой огромный граф связанных объектов — большинство из которых никогда не понадобятся. Лишние запросы к БД замедляют систему.',
+    solution:'Вместо реальных данных поместите в объект «метку». При первом обращении к данным они загружаются из БД и кэшируются. Есть 4 реализации: инициализация по требованию, виртуальный прокси, диспетчер значения, фиктивный объект.',
+    when:'Применяйте только если доступ к данным требует дополнительного обращения к БД. Не стоит использовать ради полей из той же строки таблицы. Типичные случаи: коллекции связанных объектов, большие поля BLOB/CLOB.',
+    code:`// 1. Инициализация по требованию (самый простой вариант)
+class Employee {
+    private List<Order> orders = null;
+
+    public List<Order> getOrders() {
+        if (orders == null) {
+            orders = loadOrdersFromDB(this.id);
+        }
+        return orders;
+    }
+}
+
+// 2. Виртуальный прокси — объект-заменитель
+class OrderCollectionProxy extends AbstractList<Order> {
+    private boolean loaded = false;
+    private List<Order> data;
+    private Long employeeId;
+
+    @Override
+    public Order get(int index) {
+        load();
+        return data.get(index);
+    }
+
+    private void load() {
+        if (!loaded) {
+            data = db.loadOrders(employeeId);
+            loaded = true;
+        }
+    }
+}
+
+// Использование — загрузка происходит только при get()
+Employee emp = employeeMapper.find(1L);
+List<Order> orders = emp.getOrders(); // загрузка здесь
+Order first = orders.get(0);          // уже из кэша`,
+    related:['Коллекция объектов','Преобразователь данных (Data Mapper)']
+  }
+];
+
+const nav = document.getElementById('nav');
+const content = document.getElementById('content');
+let active = patterns[0].id;
+
+function render(p) {
+  return `<div class="card visible" id="card-${p.id}">
+    <span class="tag ${p.tagClass}">${p.tag}</span>
+    <h2>${p.name} <span style="font-weight:400;color:var(--color-text-secondary);font-size:16px">(${p.en})</span></h2>
+    <p class="subtitle">${p.subtitle}</p>
+
+    <div class="section-title">Проблема</div>
+    <p>${p.problem}</p>
+
+    <div class="section-title">Решение</div>
+    <p>${p.solution}</p>
+
+    <div class="section-title">Когда применять</div>
+    <div class="when">${p.when}</div>
+
+    <div class="section-title">Пример кода</div>
+    <pre><code>${p.code}</code></pre>
+
+    <hr class="divider">
+    <div class="section-title">Связанные паттерны</div>
+    <div class="related">${p.related.map(r=>`<span class="pill">${r}</span>`).join('')}</div>
+  </div>`;
+}
+
+nav.innerHTML = patterns.map(p =>
+  `<button data-id="${p.id}">${p.name} (${p.en})</button>`
+).join('');
+
+content.innerHTML = patterns.map(render).join('');
+
+function show(id) {
+  active = id;
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('visible'));
+  document.getElementById('card-'+id).classList.add('visible');
+  document.querySelectorAll('.nav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.id === id);
+  });
+}
+
+nav.querySelectorAll('button').forEach(b => {
+  b.addEventListener('click', () => show(b.dataset.id));
+});
+
+show(patterns[0].id);
+</script>
